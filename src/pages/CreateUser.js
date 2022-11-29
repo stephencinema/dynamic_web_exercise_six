@@ -10,7 +10,7 @@ function CreateUserPage({ isLoggedIn, setIsLoggedIn, setUserInformation }) {
 
   useEffect(() => {
     if (isLoggedIn) navigate("/");
-  }, [isLoggedIn]);
+  }, [isLoggedIn, navigate]);
 
   const signUpUser = useCallback(
     (e) => {
@@ -41,13 +41,13 @@ function CreateUserPage({ isLoggedIn, setIsLoggedIn, setUserInformation }) {
           console.warn({ error, errorCode, errorMessage });
         });
     },
-    [setErrors, setIsLoggedIn, , setUserInformation]
+    [setErrors, setIsLoggedIn, setUserInformation]
   );
   return (
     <>
-      <Header setIsLoggedIn={setIsLoggedIn} setUserInformation={setUserInformation} />
+      <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} setUserInformation={setUserInformation} />
       <div className="PageWrapper">
-        <h1>Create Profile</h1>
+        <h1>Create User</h1>
         <CreateUserForm signUpUser={signUpUser} />
       </div>
     </>

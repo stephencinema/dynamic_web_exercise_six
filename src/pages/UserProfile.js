@@ -7,11 +7,11 @@ function UserProfilePage({ isLoading, isLoggedIn, setIsLoggedIn, setUserInformat
 
   useEffect(() => {
     if (!isLoggedIn && !isLoading) navigate("/login");
-  }, [isLoggedIn, isLoading]);
+  }, [isLoggedIn, isLoading, navigate]);
 
   return (
     <>
-      <Header setIsLoggedIn={setIsLoggedIn} setUserInformation={setUserInformation} />
+      <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} setUserInformation={setUserInformation} />
       <div className="PageWrapper">
         <h1>User Profile</h1>
         <p>
