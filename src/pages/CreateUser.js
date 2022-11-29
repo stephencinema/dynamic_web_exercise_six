@@ -5,7 +5,7 @@ import CreateUserForm from "../components/CreateUserForm";
 import Header from "../components/Header";
 
 function CreateUserPage({ isLoggedIn, setIsLoggedIn, setUserInformation }) {
-  const [error, setErrors] = useState();
+  const [errors, setErrors] = useState();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -49,6 +49,7 @@ function CreateUserPage({ isLoggedIn, setIsLoggedIn, setUserInformation }) {
       <div className="PageWrapper">
         <h1>Create User</h1>
         <CreateUserForm signUpUser={signUpUser} />
+        <p>{errors}</p>
       </div>
     </>
   );
