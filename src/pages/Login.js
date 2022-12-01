@@ -14,17 +14,17 @@ function LoginPage({ isLoggedIn, setIsLoggedIn, setUserInformation }) {
 
   const loginUser = useCallback((e) => {
     e.preventDefault();
-
+    // assign email and password to variables from form
     const email = e.currentTarget.email.value;
     const password = e.currentTarget.password.value;
-
-    console.log({ email, password });
 
     const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
+        // since the user is true, set logged in
         setIsLoggedIn(true);
+        // provide some information about the user via setState
         setUserInformation({
           email: user.email,
           displayName: user.displayName,
